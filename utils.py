@@ -4,7 +4,6 @@ import torch
 from helper_code import find_patient_files, load_patient_data, get_num_locations, get_locations, get_quality, load_wav_file
 from helper_code import compare_strings, get_age, get_sex, get_height, get_weight, get_pregnancy_status
 
-# Updated mappings to remove "Unknown" and outcome-related labels
 quality_mapping_str2int = {'Blowing': 0, 'Harsh': 1}
 quality_mapping_int2str = {0: 'Blowing', 1: 'Harsh'}
 
@@ -54,7 +53,7 @@ def get_patient_recording_files(data, num_locations):
             break
     return recording_files
 
-def load_recordings_with_labels(data_folder, included_labels=['Blowing', 'Harsh']):  # Removed 'Unknown'
+def load_recordings_with_labels(data_folder, included_labels=['Blowing', 'Harsh']):  
     patient_files_arr, recording_files, qualities = [], [], []
     patient_files = find_patient_files(data_folder)
     for pf in patient_files:
